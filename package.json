@@ -1,0 +1,26 @@
+{
+  "name": "primeiros-passos",
+  "version": "1.0.0",
+  "description": "primeiros passos com node.js. Baseado no curos da Alura",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelsugaharafrancisco/api-node.git"
+  },
+  "author": "rafael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelsugaharafrancisco/api-node/issues"
+  },
+  "homepage": "https://github.com/rafaelsugaharafrancisco/api-node#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
