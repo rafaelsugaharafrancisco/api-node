@@ -1,10 +1,10 @@
-class Tabelas {
+class CriaTabelas {
     constructor(conexao) {
         this.conexao = conexao
     }
 
-    criaCelular() {
-        const sql = `CREATE TABLE celular (
+    celular() {
+        const sql = `CREATE TABLE IF NOT EXISTS celular (
             id int AUTO_INCREMENT, marca varchar(20), modelo varchar(20) UNIQUE,
             PRIMARY KEY(id))`
 
@@ -13,4 +13,4 @@ class Tabelas {
 
 }
 
-module.exports = Tabelas
+module.exports = CriaTabelas
