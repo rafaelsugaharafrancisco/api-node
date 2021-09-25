@@ -6,7 +6,7 @@ class CriaTabelas {
     celular() {
         const sql = `CREATE TABLE IF NOT EXISTS celular (
             id int AUTO_INCREMENT, marca varchar(20), modelo varchar(20) UNIQUE,
-            PRIMARY KEY(id))`
+            dataCriacao date, PRIMARY KEY(id))`
 
         this.conexao.query(sql)
     }
