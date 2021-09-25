@@ -36,6 +36,35 @@ class Atendimento {
                 res.status(400).json(erro) : res.status(201).json(celularDatado))
         }
     }
+
+    lista(res) {
+        const sql = "SELECT * FROM celular"
+        conexao.query(sql, (erro, resultado) => erro ?
+            res.status(400).json(erro) : res.status(200).json(resultado))
+    }
+
+    pesquisaPorId(id, res) {
+        const sql = `SELECT * FROM celular WHERE id=${id}`
+        conexao.query(sql, (erro, resultado) => erro ?
+            res.status(400).json(erro) : objetoCelular(resultado))
+
+        function objetoCelular(resultado) {
+            if (resultado.length == 0) {
+                res.status(200).send(`Celular com id ${id} não encontrado`)
+            } else {
+                res.status(200).json(resultado[0])
+            } 
+        }
+    }
+
+    atualiza(id, celular, res) {
+        celular.dataCriacao = moment(celular.dataCriacao, 'DD-MM-YYYY').format('YYYY-MM-DD')
+
+        const sql = "UPDATE celular SET ? WHERE id=?"
+
+        conexao.query(sql, [celular, id], (erro, resultado) => erro ?
+            res.status(400).json(erro) : res.status(200).json(celular))
+    }
 }
 
 module.exports = new Atendimento
