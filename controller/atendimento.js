@@ -16,4 +16,8 @@ module.exports = app => {
         const celular = req.body
         Atendimento.atualiza(parseInt(req.params.id), celular, res)
     })
+
+    app.delete("/atendimento/:id", (req, res) => {
+        Atendimento.remove(parseInt(req.params.id), res)
+    })
 }

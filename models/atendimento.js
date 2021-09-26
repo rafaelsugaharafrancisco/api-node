@@ -65,6 +65,12 @@ class Atendimento {
         conexao.query(sql, [celular, id], (erro, resultado) => erro ?
             res.status(400).json(erro) : res.status(200).json(celular))
     }
+
+    remove(id, res) {
+        const sql = "DELETE FROM celular WHERE id=?"
+        conexao.query(sql, id, (erro, resultado) => erro ?
+        res.status(400).json(erro) : res.status(200).json({id}))
+    }
 }
 
 module.exports = new Atendimento
